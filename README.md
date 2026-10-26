@@ -34,7 +34,7 @@ All local URLs are relative so the site works under `/kimo-website/`. If the rep
 
 ## Public assets
 
-The logo belongs to kimo. Static logo variants and the 4.2-second animated SVG are copied from `kimo/assets/brand/`. The animation remains self-contained, honours reduced motion and follows the embedding theme. No brand source is edited by this site.
+The logo belongs to kimo. Static logo variants, the 4.2-second hair-to-bun splash and the 4.8-second eye loop are copied from `kimo/assets/brand/`. The animations remain self-contained, honour reduced motion and follow the embedding theme. No brand source is edited by this site.
 
 Screenshots come from `kimo/docs/screenshots/`: v0.1.8, captured 2026-10-26 using demonstration data and browser phone emulation. Captions retain that version independently of the latest release link. The images demonstrate the UI; they do not establish real-device, real-provider, peer-routing or performance acceptance. See the application’s screenshot README for capture conditions.
 
@@ -45,7 +45,7 @@ node scripts/sync-assets.mjs ../kimo
 npm run build
 ```
 
-Review both themes, screenshot versions/captions and the social image after syncing. Roboto Mono is self-hosted in `assets/fonts/` with its SIL Open Font License. `assets/social.png` is the 1200 × 630 share image.
+Review both themes, screenshot versions/captions and the social image after syncing. Roboto Mono is self-hosted in `assets/fonts/` with its SIL Open Font License. `assets/social.png` is the 1200 × 630 share image; its browser-rendered source is `scripts/social.html`.
 
 ## Verification
 

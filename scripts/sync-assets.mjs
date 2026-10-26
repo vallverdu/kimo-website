@@ -7,7 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const source = resolve(process.argv[2] || join(root, '../kimo'));
 await readFile(join(source, 'docs/product-direction.md'), 'utf8');
 for (const folder of ['brand', 'screenshots']) await mkdir(join(root, 'assets', folder), { recursive: true });
-for (const name of ['kimo-light.svg', 'kimo-dark.svg', 'kimo-splash.svg']) {
+for (const name of ['kimo-light.svg', 'kimo-dark.svg', 'kimo-splash.svg', 'kimo-eyes.svg']) {
   await cp(join(source, 'assets/brand', name), join(root, 'assets/brand', name));
 }
 for (const name of ['phone-projects', 'phone-terminal', 'phone-accounts', 'phone-usage', 'app-claude']) {
