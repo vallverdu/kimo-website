@@ -1,8 +1,10 @@
 # kimo website
 
-The independent, one-page website for [kimo](https://github.com/vallverdu/kimo), a mobile-first agent development environment in Rust.
+The independent website and extended documentation for [kimo](https://github.com/vallverdu/kimo), a mobile-first agent development environment in Rust.
 
 **Website:** https://vallverdu.github.io/kimo-website/
+
+**Documentation:** https://vallverdu.github.io/kimo-website/docs.html
 
 This repository stays separate from the application. It has no runtime dependencies, build framework, analytics or external font requests. GitHub Pages serves static HTML, CSS, JavaScript and public assets.
 
@@ -17,7 +19,7 @@ npm run serve
 
 Open http://127.0.0.1:17892/. Rebuild after changes; the server reads `dist/`.
 
-The build checks JavaScript syntax, duplicate IDs, internal anchors, local asset references and the light/dark screenshot pairs. Only `index.html`, `css/`, `js/`, `assets/`, `robots.txt` and `sitemap.xml` are published.
+The build checks JavaScript syntax, duplicate IDs per page, links and anchors across both pages, copy/control targets, local asset references and the light/dark screenshot pairs. Only `index.html`, `docs.html`, `css/`, `js/`, `assets/`, `robots.txt` and `sitemap.xml` are published.
 
 ## Publishing
 
@@ -31,6 +33,13 @@ All local URLs are relative so the site works under `/kimo-website/`. If the rep
 - `css/tokens.css` is copied from kimo. Site-specific sizes, theme values and layouts live in `css/skin.css`.
 - Copy follows kimo’s `docs/product-direction.md`, README and TODO. Describe remaining setup and acceptance work honestly. Do not add performance numbers, provider guarantees, testimonials or full mobile acceptance claims without evidence.
 - The four gallery views, install selector, keyboard navigation, clipboard controls and stored light/dark preference use plain JavaScript. Main content, links and the default installation command remain usable without JavaScript.
+- `docs.html` is the second page: 15 sections covering setup, the phone journey, projects/worktrees, sessions, peers, accounts, resources, settings, custom apps, grouped API routes, CLI commands, configuration/services, troubleshooting and current limitations. It has a sticky contents list, native mobile disclosures, current-section tracking and copyable examples. It shares the header/theme/clipboard code with the landing page, with its own `css/docs.css` and `js/docs.js`.
+
+## Maintaining documentation
+
+Review the application’s `README.md`, `docs/product-direction.md`, `TODO.md`, `docs/api.md`, `src/config.rs`, `src/core/access.rs`, `web/sdk/`, `install.sh` and `contrib/` when updating the guide. These files establish behavior, defaults, access boundaries and installation differences. Update the review date in `docs.html` after a source review; do not replace unperformed device/provider checks with claims of completion.
+
+Examples on the documentation page are inert text. Copy buttons do not run installers, connect to hosts or launch agents. Developer examples use explicit host/key placeholders. Keep cross-page anchor destinations and the sitemap current when moving sections.
 
 ## Public assets
 
@@ -51,7 +60,9 @@ Review both themes, screenshot versions/captions and the social image after sync
 
 2026-10-26: checked in headless Google Chrome on macOS at 320, 375, 390, 430, 560, 768, 800, 1024 and 1440 CSS-pixel widths. Checked light/dark layouts, persistent theme choice, system theme, reduced motion, navigation and Escape, all gallery panels, keyboard tabs, both installation commands, actual clipboard copying and content with JavaScript disabled. No horizontal page overflow, missing assets or JavaScript errors were observed. Screenshots were visually inspected at phone and desktop sizes.
 
-These are browser checks of the marketing website. Safari and real phones were not tested; no application API, SDK or host-routing code changed.
+The extended documentation was also checked at ten widths (320, 375, 390, 430, 560, 768, 800, 801, 1024 and 1440). Verified all 15 section destinations, mobile contents and reading focus, current-section tracking, keyboard/Escape controls, copyable SDK text, API/FAQ disclosures, links between both pages, persistent theme, reduced motion and reading without JavaScript. The build validates links and anchors across both pages. Phone and desktop screenshots were visually inspected in light and dark.
+
+These are browser checks of the website and documentation. Safari and real phones were not tested; no application API, SDK or host-routing code changed. Installers, provider authentication, commands and SDK examples were reviewed against source; they were not executed against real accounts or hosts as part of this website task.
 
 ## License
 

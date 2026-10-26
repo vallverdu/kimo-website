@@ -1,6 +1,6 @@
 # kimo website
 
-This is the independent GitHub Pages marketing site for `../kimo`.
+This is the independent GitHub Pages website and documentation for `../kimo`.
 
 - Read kimo’s `docs/product-direction.md` before changing product claims. The phone-to-host journey is the main story. Keep prerequisites and unfinished acceptance checks honest.
 - Preserve the supplied jordivallverdu.com template’s Roboto Mono typography, fine rules, spacing and kimo design tokens. Use inline SVG line icons.
@@ -8,3 +8,4 @@ This is the independent GitHub Pages marketing site for `../kimo`.
 - Copy public assets using `scripts/sync-assets.mjs`; do not modify the other repository’s brand masters or add website code to the application.
 - Update screenshot versions and documentation when replacing captures. Demo images do not prove provider, host-routing or real-phone acceptance.
 - Deploy through `.github/workflows/pages.yml` on `main`. Update canonical, social and sitemap URLs together if hosting changes.
+- Keep `docs.html` aligned with the application’s actual configuration, SDK/access rules, installer and service templates. Update its review date after checking sources. Preserve working cross-page anchors, mobile contents, keyboard access and inert, copyable examples.

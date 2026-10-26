@@ -53,7 +53,7 @@
         <nav class="desktop-nav" aria-label="Main navigation">
           <a href="#workflow">How it works</a>
           <a href="#features">Explore</a>
-          <a href="#developers">For builders</a>
+          <a href="docs.html">Documentation</a>
         </nav>
         <div class="header-actions">
           <button class="icon-button theme-toggle" aria-label="Switch to dark theme" title="Switch theme" hidden><svg class="icon" aria-hidden="true"><use href="#moon"/></svg></button>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href="#workflow">How it works</a><a href="#features">Explore kimo</a><a href="#developers">For builders</a><a href="#install">Get started</a>
+        <a href="#workflow">How it works</a><a href="#features">Explore kimo</a><a href="docs.html">Documentation</a><a href="#install">Get started</a>
       </nav>
     </header>
 
@@ -102,7 +102,7 @@
           <article class="step"><span class="step-number">02</span><svg class="icon" aria-hidden="true"><use href="#folder"/></svg><h3>Start with an idea.</h3><p>Create a fresh project folder from the PWA. Start Claude Code or Codex in it and send your first task.</p></article>
           <article class="step"><span class="step-number">03</span><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg><h3>Direct the work.</h3><p>Read progress, answer questions and ask your agent to build, test or publish using the tools authorised on your host.</p></article>
         </div>
-        <div class="row workflow-note"><span class="note-label">A little setup, on the host.</span><p>Install and sign in to your agent CLIs first. Codex sign-in currently needs a browser on that computer. <a href="https://github.com/vallverdu/kimo#quick-start">Read the setup guide <span aria-hidden="true">↗</span></a></p></div>
+        <div class="row workflow-note"><span class="note-label">A little setup, on the host.</span><p>Install and sign in to your agent CLIs first. Codex sign-in currently needs a browser on that computer. <a href="docs.html#phone">Read the setup guide <span aria-hidden="true">↗</span></a></p></div>
       </section>
 
       <section id="features" class="section-block features">
@@ -140,7 +140,7 @@
 
       <section id="developers" class="section-block developers">
         <div class="row developer-row">
-          <div class="developer-copy"><p class="eyebrow">03 / Make it your own</p><h2>An environment.<br>And a foundation.</h2><p>Build your own PWA, agent board or orchestration tools on kimo’s shared HTTP API and JavaScript SDK. It is the same interface kimo’s phone app uses.</p><p>Scoped app keys, live events and an embeddable terminal give your app access to the work it needs.</p><a class="text-link" href="https://github.com/vallverdu/kimo/blob/main/docs/api.md">Explore the API &amp; SDK <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a></div>
+          <div class="developer-copy"><p class="eyebrow">03 / Make it your own</p><h2>An environment.<br>And a foundation.</h2><p>Build your own PWA, agent board or orchestration tools on kimo’s shared HTTP API and JavaScript SDK. It is the same interface kimo’s phone app uses.</p><p>Scoped app keys, live events and an embeddable terminal give your app access to the work it needs.</p><a class="text-link" href="docs.html#custom-apps">Explore the API &amp; SDK <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a></div>
           <div class="code-window"><div class="code-toolbar"><span><svg class="icon" aria-hidden="true"><use href="#code"/></svg> your-app.js</span><span>JAVASCRIPT SDK</span></div><pre><code><span class="code-comment">// Connect with your app’s scoped key.</span>
 <span class="code-keyword">const</span> kimo = <span class="code-keyword">new</span> <span class="code-function">Kimo</span>({ url, token });
 
@@ -167,7 +167,7 @@ console.<span class="code-function">log</span>((<span class="code-keyword">await
             <div class="command-box"><span class="command-prompt" aria-hidden="true">$</span><code id="install-command">curl -fsSL https://raw.githubusercontent.com/vallverdu/kimo/main/install.sh | sh</code><button class="copy-button" data-copy="install-command" aria-label="Copy installation command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div>
             <p class="command-note" id="install-note">macOS (Apple silicon / Intel) · Linux (ARM64 / x86_64)</p>
             <div class="quick-commands"><div><span>Start your host</span><code id="serve-command">kimo serve</code><button class="copy-button" data-copy="serve-command" aria-label="Copy kimo serve command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg></button></div><div><span>Pair your phone</span><code id="pair-command">kimo pair</code><button class="copy-button" data-copy="pair-command" aria-label="Copy kimo pair command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg></button></div></div>
-            <p class="source-install">Prefer building from source? <a href="https://github.com/vallverdu/kimo#install">Rust installation instructions <span aria-hidden="true">↗</span></a></p>
+            <p class="source-install">Prefer building from source? <a href="docs.html#installation">Rust installation instructions <span aria-hidden="true">↗</span></a></p>
           </div>
           <aside class="install-aside"><img class="splash-logo" src="assets/brand/kimo-eyes.svg" alt="" width="108" height="112" loading="lazy"><h3>Bring your tools.<br>Keep your folders.</h3><p>kimo runs the Claude Code and Codex CLIs you already use, with your own authenticated accounts and ordinary project folders.</p><a class="text-link" href="https://github.com/vallverdu/kimo/releases/latest">Latest release <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a></aside>
         </div>
@@ -175,7 +175,7 @@ console.<span class="code-function">log</span>((<span class="code-keyword">await
       </section>
     </main>
 
-    <footer class="site-footer"><div class="row footer-row"><a class="brand" href="#home"><img class="theme-logo" src="assets/brand/kimo-light.svg" width="30" height="30" alt=""><span>kimo<span class="brand-dot">.</span></span></a><span class="footer-credit">Made by <a href="https://jordivallverdu.com">Jordi Vallverdú</a></span><nav aria-label="Footer"><a href="https://github.com/vallverdu/kimo">Source</a><a href="https://github.com/vallverdu/kimo/blob/main/docs/api.md">Docs</a><a href="https://github.com/vallverdu/kimo/issues">Contribute <span aria-hidden="true">↗</span></a></nav></div></footer>
+    <footer class="site-footer"><div class="row footer-row"><a class="brand" href="#home"><img class="theme-logo" src="assets/brand/kimo-light.svg" width="30" height="30" alt=""><span>kimo<span class="brand-dot">.</span></span></a><span class="footer-credit">Made by <a href="https://jordivallverdu.com">Jordi Vallverdú</a></span><nav aria-label="Footer"><a href="https://github.com/vallverdu/kimo">Source</a><a href="docs.html">Documentation</a><a href="https://github.com/vallverdu/kimo/issues">Contribute <span aria-hidden="true">↗</span></a></nav></div></footer>
   </div>
   <div id="toast" role="status" class="toast" hidden></div>
 </body>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <title>kimo documentation — Setup, workflows &amp; developer reference</title>
+  <meta name="description" content="Install kimo, connect your phone, create projects, direct Claude Code and Codex, pair computers and build your own apps. Guides, CLI, API and SDK reference.">
+  <link rel="canonical" href="https://vallverdu.github.io/kimo-website/docs.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="kimo documentation — From first install to your own tools.">
+  <meta property="og:description" content="A practical guide to the mobile-first agent environment: setup, projects, accounts, paired hosts, resources, CLI, API and JavaScript SDK.">
+  <meta property="og:url" content="https://vallverdu.github.io/kimo-website/docs.html">
+  <meta property="og:image" content="https://vallverdu.github.io/kimo-website/assets/social.png">
+  <meta property="og:image:alt" content="kimo: Your computer. Your agents. In your pocket.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/brand/kimo-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/brand/kimo-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <link rel="preload" href="assets/fonts/roboto-mono-light.ttf" as="font" type="font/ttf" crossorigin>
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/template.css">
+  <link rel="stylesheet" href="css/skin.css">
+  <link rel="stylesheet" href="css/docs.css">
+  <script src="js/site.js" defer></script>
+  <script src="js/docs.js" defer></script>
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main">Skip to documentation</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="external" viewBox="0 0 24 24"><path d="M14 4h6v6m-1-5L9 15m1-11H4v16h16v-6"/></symbol>
+    <symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4 8.5 8.5 0 1 0 20 14.2Z"/></symbol>
+    <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></symbol>
+  </svg>
+  <div class="wrapper">
+    <header class="site-header">
+      <div class="row header-row">
+        <a class="brand" href="index.html" aria-label="kimo home"><img class="theme-logo" src="assets/brand/kimo-light.svg" width="36" height="36" alt=""><span>kimo<span class="brand-dot">.</span></span></a>
+        <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html#workflow">How it works</a><a href="index.html#features">Explore</a><a href="docs.html" aria-current="page">Documentation</a></nav>
+        <div class="header-actions">
+          <button class="icon-button theme-toggle" aria-label="Switch to dark theme" title="Switch theme" hidden><svg class="icon" aria-hidden="true"><use href="#moon"/></svg></button>
+          <a class="header-github" href="https://github.com/vallverdu/kimo">GitHub <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a>
+          <button class="menu-toggle icon-button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation" hidden><span></span><span></span></button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html">Home</a><a href="index.html#features">Explore kimo</a><a href="docs.html" aria-current="page">Documentation</a><a href="#installation">Get started</a></nav>
+    </header>
+
+    <div class="docs-intro" id="top"><div class="row">
+      <div class="docs-breadcrumb"><a href="index.html">kimo</a><span aria-hidden="true">/</span><span>Documentation</span></div>
+      <p class="eyebrow">SETUP / WORKFLOWS / REFERENCE</p>
+      <h1>From first install<br>to your own tools<span class="accent">.</span></h1>
+      <p class="lead">A practical guide to running agents on your computers, directing them from your phone and building on the same API.</p>
+      <div class="docs-meta"><span>Reviewed 26 October 2026</span><a href="#installation">Start here ↓</a><a href="https://github.com/vallverdu/kimo/releases/latest">Latest release ↗</a></div>
+    </div></div>
+
+    <div class="row docs-layout">
+      <aside class="docs-sidebar" aria-label="Documentation contents">
+        <details class="docs-contents" open><summary>On this page</summary><nav aria-label="Documentation sections">
+          <span class="toc-group">GETTING STARTED</span>
+          <a href="#overview">What runs where</a><a href="#installation">Install &amp; start</a><a href="#phone">Connect your phone</a>
+          <span class="toc-group">WORKING IN KIMO</span>
+          <a href="#projects">Projects &amp; worktrees</a><a href="#sessions">Agents &amp; conversations</a><a href="#hosts">Paired computers</a><a href="#accounts">Accounts &amp; usage</a><a href="#resources">Resources &amp; recovery</a><a href="#settings">Skills, settings &amp; updates</a>
+          <span class="toc-group">BUILDING &amp; REFERENCE</span>
+          <a href="#custom-apps">Build your own app</a><a href="#api">HTTP API</a><a href="#cli">CLI reference</a><a href="#configuration">Configuration &amp; services</a><a href="#troubleshooting">Troubleshooting</a><a href="#status">Status &amp; contributing</a>
+        </nav></details>
+        <div class="docs-sidebar-footer"><a href="https://github.com/vallverdu/kimo/issues">Suggest an improvement <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a><br><a href="#top">Back to top ↑</a></div>
+      </aside>
+
+      <main id="main" class="docs-article">
+        <section id="overview" class="doc-section">
+          <h2><span>01</span> What runs where</h2>
+          <p>kimo is a mobile-first agent development environment written in Rust. A server on your Mac or Linux computer runs Claude Code, Codex and shell sessions. Your phone or tablet connects to that server through kimo’s progressive web app (PWA). The native window and command line are clients of the same API.</p>
+          <p>Your selected <strong>host</strong> owns the project folders, processes, builds and available hardware. A phone connection does not move that work onto the phone. Pair several computers to reach their projects while keeping each project on its original host.</p>
+          <div class="doc-table" tabindex="0" role="region" aria-label="Where kimo components run"><table><thead><tr><th>Component</th><th>Where it lives</th><th>What it does</th></tr></thead><tbody>
+            <tr><td>kimo server</td><td>Your Mac or Linux host</td><td>Owns projects, sessions, accounts, resources and the API.</td></tr>
+            <tr><td>Agent CLIs</td><td>The selected host</td><td>Run with that host’s tools, files and user permissions.</td></tr>
+            <tr><td>Phone PWA</td><td>Your phone or tablet</td><td>Creates projects, directs agents and displays their output.</td></tr>
+            <tr><td>Native window / CLI</td><td>A computer</td><td>Provides another way to control the server and paired hosts.</td></tr>
+            <tr><td>This website</td><td>GitHub Pages</td><td>Introduces and documents kimo. Your working PWA is served by your own host.</td></tr>
+          </tbody></table></div>
+          <p>There is no mandatory project format, editor or file browser. Projects are ordinary folders. kimo’s internal state lives outside them, in its own data directory.</p>
+        </section>
+
+        <section id="installation" class="doc-section">
+          <h2><span>02</span> Install &amp; start</h2>
+          <h3>Before you begin</h3>
+          <ul><li>A macOS or Linux computer, on Apple silicon / ARM64 or Intel / x86_64.</li><li><a href="https://github.com/anthropics/claude-code">Claude Code</a>, <a href="https://github.com/openai/codex">Codex</a>, or both, installed and authenticated on that computer. kimo uses your existing provider access; it does not include a provider subscription.</li><li>The development tools your project needs on the host: for example Git, Node.js, Python or Rust. GPU work also needs the host’s appropriate drivers and tools.</li><li>A reachable network between your phone and host, such as your LAN, Tailscale or ZeroTier.</li></ul>
+          <h3>Install a release</h3>
+          <p>Run this on the computer that will do the work. The installer downloads the release for its operating system and architecture into <code>~/.local/bin</code>.</p>
+          <div class="doc-code doc-code-wrap"><div class="doc-code-top"><span>Native app + server</span><button class="copy-button" data-copy="doc-install" aria-label="Copy installation command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-install">curl -fsSL https://raw.githubusercontent.com/vallverdu/kimo/main/install.sh | sh</code></pre></div>
+          <div class="doc-code doc-code-wrap"><div class="doc-code-top"><span>Linux server-only release</span><button class="copy-button" data-copy="doc-install-server" aria-label="Copy server installation command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-install-server">curl -fsSL https://raw.githubusercontent.com/vallverdu/kimo/main/install.sh | sh -s -- --server</code></pre></div>
+          <aside class="doc-note"><strong>Headless on macOS</strong><p>The installer currently selects the normal macOS binary even with <code>--server</code>. You can still run <code>kimo serve</code> without opening a window. For a build with desktop features excluded, use the source command below.</p></aside>
+          <p>If your shell cannot find <code>kimo</code>, add <code>~/.local/bin</code> to its <code>PATH</code>, or run <code>~/.local/bin/kimo</code> directly. On macOS the installer also sets up <code>kimo.app</code> in Applications, or your user Applications folder.</p>
+          <h3>Build from source</h3>
+          <p>Use Rust stable. Cargo installs into <code>~/.cargo/bin</code> by default.</p>
+          <div class="doc-code doc-code-wrap"><div class="doc-code-top"><span>Rust / choose one variant</span><button class="copy-button" data-copy="doc-cargo" aria-label="Copy Rust installation examples" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-cargo"># Native window and server
+cargo install --git https://github.com/vallverdu/kimo kimo
+
+# Server only, without desktop features
+cargo install --git https://github.com/vallverdu/kimo kimo --no-default-features</code></pre></div>
+          <p>On Linux, building the native window also needs the X11/Wayland development libraries listed in the <a href="https://github.com/vallverdu/kimo/blob/main/CONTRIBUTING.md">contributing guide</a>. The server-only build avoids the desktop feature set.</p>
+          <h3>Start the host</h3>
+          <div class="doc-code"><div class="doc-code-top"><span>Headless server</span><button class="copy-button" data-copy="doc-serve" aria-label="Copy start-server command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-serve">kimo serve</code></pre></div>
+          <p>Run <code>kimo</code> instead to open the native window and start the background server when needed. The default port is <code>7777</code>. Closing the native window leaves the background server and agents running. If you launched <code>kimo serve</code> in a terminal, keep it running or configure a <a href="#configuration">user service</a>.</p>
+        </section>
+
+        <section id="phone" class="doc-section">
+          <h2><span>03</span> Connect your phone</h2>
+          <ol><li>Start kimo on the host and make sure an agent CLI is signed in there.</li><li>On the host, run <code>kimo pair</code>, or open <strong>Devices</strong> in kimo.</li><li>Choose an address your phone can reach: Wi-Fi/LAN, Tailscale or ZeroTier. Scan the QR code or open that address and enter the pairing code.</li><li>The code is valid for ten minutes and is used once. If it expires, create a fresh code. Typed codes accept case differences, spaces and dashes.</li><li>Check the host shown in the PWA’s header before creating anything.</li></ol>
+          <p>Pairing gives this device its own revocable owner key. Revoke a device from Devices if it should no longer control the host.</p>
+          <h3>Install the PWA</h3>
+          <p><strong>iPhone / iPad:</strong> open the host’s address in Safari, choose Share → Add to Home Screen, then open kimo from the home screen. The installed app keeps separate browser storage, so enter a fresh pairing code there if needed.</p>
+          <p><strong>Android:</strong> installation needs HTTPS. For a configured Tailscale host, Devices offers HTTPS setup through <code>tailscale serve</code>. Open the HTTPS address and use the browser’s install action. Pair the installed app if it does not already have a device key.</p>
+          <aside class="doc-note"><strong>Reachability comes before pairing</strong><p>A code grants access; it does not create a network connection. Keep your phone and host on a reachable private network. The GitHub Pages website is documentation, not a relay to your computer.</p></aside>
+          <h3>Your first project from a phone</h3>
+          <ol><li>Open <strong>Projects → +</strong> and choose a new project.</li><li>Enter its name and create it. The folder is created on the selected host, under its configured projects directory unless you choose another location.</li><li>Choose <strong>+ claude</strong> or <strong>+ codex</strong> under that project. New sessions use the provider’s active account.</li><li>Send an initial task through the message field, for example “Build a small invoice PWA with line items, totals and a print view.”</li><li>Review output, answer the agent’s questions and ask it to test or publish when ready. Publishing uses tools and credentials available on the host.</li></ol>
+          <p>Project creation, agent launch and the first message are currently separate steps. A combined guided flow is still planned.</p>
+          <figure class="doc-figure"><div class="doc-figure-images"><img data-screen="phone-projects" src="assets/screenshots/phone-projects.png" width="860" height="1864" alt="kimo projects on a phone, with Claude Code, Codex and shell launch buttons" loading="lazy"><img data-screen="phone-terminal" src="assets/screenshots/phone-terminal.png" width="860" height="1864" alt="An agent terminal on a phone with a task, progress output and message field" loading="lazy"></div><figcaption>v0.1.8 interface · demonstration data · browser phone emulation.<br>These captures illustrate the workflow; they do not establish real-device acceptance.</figcaption></figure>
+        </section>
+
+        <section id="projects" class="doc-section">
+          <h2><span>04</span> Projects &amp; worktrees</h2>
+          <p>A project points to a folder on a host. Create a new folder, add an existing one or clone a Git repository. Clone progress appears in a terminal, so authentication prompts and failures stay visible.</p>
+          <p>Adding a folder can find its latest Claude Code and Codex conversations and continue them as sessions. Reopening an already registered project reuses it. Earlier conversations remain available through the project’s <strong>history</strong>.</p>
+          <h3>Give parallel work its own branch</h3>
+          <p>Use a project’s worktree action to create a Git worktree with an agent. Each worktree has its own folder and branch while sharing the repository’s history. kimo-managed worktrees live under <code>~/.kimo/worktrees/&lt;repository&gt;/&lt;branch&gt;</code>.</p>
+          <p>Removing a worktree is refused while agents run there or the worktree has uncommitted changes. The branch remains after removal. Choosing a worktree base branch and creating a pull request directly from that flow are still planned; agents can use the host’s ordinary Git tools.</p>
+          <aside class="doc-note"><strong>Forget is different from delete</strong><p>Forgetting a project unregisters it from kimo. Its folder and files stay on disk. Removing an individual managed worktree is a separate, explicit operation.</p></aside>
+          <p>The native window also accepts dropped project folders. Use <code>⌘B</code> to toggle the projects panel and <code>⌘T</code> for a terminal in the current project.</p>
+        </section>
+
+        <section id="sessions" class="doc-section">
+          <h2><span>05</span> Agents &amp; conversations</h2>
+          <p>A session is a terminal running Claude Code, Codex or a shell, with a working directory and, for agents, an account. Several sessions can belong to the same project.</p>
+          <div class="doc-table" tabindex="0" role="region" aria-label="Session status and activity"><table><thead><tr><th>Indicator</th><th>Meaning</th><th>Your next step</th></tr></thead><tbody>
+            <tr><td>Working</td><td>The running agent is doing work.</td><td>Read progress or send direction when appropriate.</td></tr><tr><td>Needs you / waiting</td><td>The agent needs an answer or approval.</td><td>Open it and decide what to do.</td></tr><tr><td>Idle</td><td>The running session is at its prompt.</td><td>Read its reply and give another task.</td></tr><tr><td>Paused</td><td>The process is suspended and still occupies memory.</td><td>Resume it to continue execution.</td></tr><tr><td>Stopped / exited</td><td>The process is no longer running.</td><td>Inspect the result, or start a resumable agent again.</td></tr>
+          </tbody></table></div>
+          <p>kimo’s <strong>session ID</strong> identifies the terminal for messages and API calls. Its <strong>resume / conversation ID</strong> identifies the provider conversation. Continuing an agent uses that conversation, rather than asking you to reconstruct its chat.</p>
+          <h3>Use the terminal from your phone</h3>
+          <p>Read the live terminal, type a message and use the key bar for keys such as Escape, Tab, Ctrl+C and arrows. The phone client can upload photos or files to the host for an agent; uploaded files are stored under kimo’s data directory, and their paths can be sent to the agent.</p>
+          <h3>Disconnecting versus stopping</h3>
+          <p>A client disconnect does not tell the server to stop the session. On terminal reconnect, kimo replays recent output from a bounded buffer. Your provider’s conversation history is separate from that terminal buffer.</p>
+          <p>A server restart is different: kimo still owns the PTYs, so uninterrupted process survival across server restarts is unfinished. Resumable agents can restart into their conversations, but an in-flight build or shell job is not restored by its chat history. See <a href="#settings">updates</a> before restarting during active work.</p>
+        </section>
+
+        <section id="hosts" class="doc-section">
+          <h2><span>06</span> Paired computers</h2>
+          <p>Run kimo on each computer. On the computer to add, create a pairing code with <code>kimo pair</code>. In the other kimo, open <strong>Devices → Other kimos</strong> and enter that address and code. Pairing lets the two machines learn about one another.</p>
+          <div class="doc-code"><div class="doc-code-top"><span>CLI / replace the example address and code</span><button class="copy-button" data-copy="doc-peers" aria-label="Copy peer pairing examples" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-peers">kimo peers
+kimo peer add http://HOST:7777 PAIRING-CODE
+kimo agents
+kimo send gpu-lab/trainer-1a2b "Report the training progress"</code></pre></div>
+          <p>Use the host switcher in the phone’s header or native projects panel. Creating a project, starting a terminal and sending a message act on that selected host. A project on a Linux GPU computer stays there when you continue it from a Mac.</p>
+          <p>Give hosts clear names through <code>KIMO_NAME</code> or <code>--name</code>. Agent IDs from another computer use <code>host/id</code>. If automatic address discovery chooses an unreachable return address, the CLI supports <code>--my-url</code> when pairing.</p>
+          <aside class="doc-note"><strong>Current transport limit</strong><p>The Rust peer client’s HTTPS/WSS support remains unfinished. Do not assume that an HTTPS address working in your phone browser also works for kimo-to-kimo forwarding. Use a reachable HTTP address on a trusted private network or a suitable SSH tunnel; the application’s peer TLS work is tracked in the roadmap.</p></aside>
+          <p>Reaching paired hosts through <code>/api/hosts/…</code> is owner-only. A normal scoped app key does not gain peer-forwarding access; a custom app can connect to hosts directly with an appropriate key for each one.</p>
+        </section>
+
+        <section id="accounts" class="doc-section">
+          <h2><span>07</span> Accounts &amp; usage</h2>
+          <h3>Sign in once, then choose an account</h3>
+          <p>kimo lists the host’s own provider login and can keep additional Claude Code or Codex accounts in isolated configuration homes. Add and authenticate an account through Accounts / Subscriptions. Initial provider authentication and switching an already authenticated account are separate operations.</p>
+          <p>Choose one active account per provider for new sessions. A session can also switch to another account of the same provider. Moving running sessions restarts their processes and continues each session’s own conversation ID; it is not a switch between Claude and Codex histories.</p>
+          <p>Codex’s initial sign-in currently needs a browser on the host. Phone-friendly Codex setup and exhausted-limit recovery are still being developed. Real-provider switching with both providers remains an acceptance check; existing automated process tests are not a substitute for that verification.</p>
+          <h3>Understand the usage views</h3>
+          <p>Usage groups agent conversations by day, project or repository, account and model, including conversations on the host outside kimo. It reads provider logs. Cost figures are estimates in US dollars at API list prices, not your actual subscription bill.</p>
+          <p>Plan windows show known usage, reset times and pace projections when available. Codex limits come from its logs. Claude plan limits use Claude’s usage API when enabled; expired credentials or unavailable data can leave them missing. A projection describes the current pace, not a guaranteed exhaustion time.</p>
+          <div class="doc-code"><div class="doc-code-top"><span>Usage on the host</span><button class="copy-button" data-copy="doc-usage" aria-label="Copy usage commands" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-usage">kimo usage --days 14
+kimo usage --days 14 --json</code></pre></div>
+        </section>
+
+        <section id="resources" class="doc-section">
+          <h2><span>08</span> Resources &amp; recovery</h2>
+          <p>kimo reports host memory, its own overhead and agent resource use separately. An agent’s process tree can include MCP servers, compilers and development servers; the memory breakdown helps identify which child process is using resources.</p>
+          <div class="doc-table" tabindex="0" role="region" aria-label="Pause, stop and continue compared"><table><thead><tr><th>Action</th><th>CPU</th><th>Memory</th><th>Continuation</th></tr></thead><tbody>
+            <tr><td>Pause</td><td>Suspends execution</td><td>Remains allocated</td><td>Resume the same suspended process.</td></tr><tr><td>Stop</td><td>Ends the session’s processes</td><td>Releases their memory</td><td>A resumable agent starts into its saved conversation later.</td></tr><tr><td>Close a client</td><td>Host work continues</td><td>Remains allocated</td><td>Reconnect to the running server.</td></tr>
+          </tbody></table></div>
+          <p>The memory warning in the PWA offers a way to stop eligible idle agents. Automatic recovery is configurable: under critical pressure, it can stop idle resumable Claude Code and Codex sessions, largest first. An optional idle timer can do the same after a period of inactivity. Opening a freed agent starts it into its conversation again.</p>
+          <p>A shell does not have a provider conversation to resume. Stopping a shell or a build inside it does not preserve that process’s execution state. Pausing does not solve memory pressure.</p>
+          <p>Keep-awake controls have three modes: off, while agents work, or on. Support uses <code>caffeinate</code> on macOS and <code>systemd-inhibit</code> on Linux. The ports view helps find a development server running on the host; a listening port still needs to be reachable from your client’s network.</p>
+          <aside class="doc-note"><strong>Resource figures need context</strong><p>Agent and tool memory is separate from kimo’s own overhead. Representative performance measurements remain open work; there is no universal memory-per-agent promise.</p></aside>
+        </section>
+
+        <section id="settings" class="doc-section">
+          <h2><span>09</span> Skills, settings &amp; updates</h2>
+          <h3>Skills</h3>
+          <p>The skills service can list skills and install them from a GitHub repository path, a Git URL or a folder. Scope can be shared or project-specific. Managed skills are read-only; removing an installed skill moves it to kimo’s skill backups.</p>
+          <p>Install the bundled <code>kimo-agents</code> skill to teach agents how to list, message, wait for and read other agents. It tells them to leave approvals and agents that need human input to you. See the <a href="#cli">collaboration commands</a>.</p>
+          <h3>Settings</h3>
+          <p>Settings cover agent enablement, models, extra arguments and permissions; terminal font size; quick commands; appearance; update policy; keep-awake mode and memory recovery. Manual permissions keep the agent’s approval flow. The “skip every prompt” / <code>yolo</code> choice changes how the agent asks for permission; agents still run with your host user’s access.</p>
+          <p>The API and native window provide more settings and skills controls than the current phone client. Completing the phone controls is still planned. A server capability does not mean the corresponding phone screen is complete.</p>
+          <h3>Updates and process continuity</h3>
+          <p>kimo checks GitHub releases and can notify, install a compatible release and restart into it. Automatic updates can wait until no agent is working. Source builds or unwritable install locations may require a manual update; the update response explains why.</p>
+          <p>Before restarting, finish or save important shell jobs and builds. Resumable agent conversations can continue after the restart, but the current server does not preserve every running process uninterrupted. The detached PTY holder needed for that is unfinished.</p>
+        </section>
+
+        <section id="custom-apps" class="doc-section">
+          <h2><span>10</span> Build your own app</h2>
+          <p>The PWA, native window and CLI use the same HTTP API. A custom dashboard, PWA or team interface can create projects, start agents, send tasks, observe changes and embed a terminal through the JavaScript SDK served by your host.</p>
+          <h3>Create an app key</h3>
+          <ol><li>As an owner, open <strong>Apps</strong> in the PWA, or call <code>POST /api/clients</code>.</li><li>Give the app a name, its allowed browser origins and either <code>read</code> or <code>control</code> scope.</li><li>Save the returned key when it is shown. Use that app key in your client; keep owner tokens out of ordinary app frontends.</li><li>Revoke the key from Apps or through the owner API when it is no longer needed.</li></ol>
+          <div class="doc-table" tabindex="0" role="region" aria-label="Access model"><table><thead><tr><th>Caller</th><th>Access</th><th>Boundaries</th></tr></thead><tbody>
+            <tr><td>Owner</td><td>Local machine requests when enabled, paired devices/kimos, or <code>KIMO_TOKEN</code></td><td>Full control of the host, including terminals and account administration.</td></tr><tr><td>Read app</td><td>Permitted GET endpoints and live events</td><td>No terminal WebSocket or folder listing. Owner-only routes remain blocked.</td></tr><tr><td>Control app</td><td>Projects, sessions, messages, terminals and account switching</td><td>No owner-only account setup, keys, devices, peers, settings or skill changes.</td></tr>
+          </tbody></table></div>
+          <p>Browser origins include scheme, host and port, without a path: for example <code>https://my-app.example</code>. A GitHub Pages repository path is not a separate origin from other paths on the same hostname. Scope limits operations; it is not a per-project file sandbox.</p>
+          <h3>Create a project and direct an agent</h3>
+          <p>Use this in a JavaScript module. Replace both host URLs and the key with your host and a <code>control</code> app key that permits your app’s origin. It creates a real folder and agent when run against your host.</p>
+          <div class="doc-code"><div class="doc-code-top"><span>JavaScript / project → agent → reply</span><button class="copy-button" data-copy="doc-sdk" aria-label="Copy JavaScript SDK example" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-sdk">import { Kimo } from 'https://YOUR-HOST/sdk/kimo.js';
+
+const kimo = new Kimo({
+  url: 'https://YOUR-HOST',
+  token: 'YOUR_APP_KEY'
+});
+
+const { project } = await kimo.createProject({
+  mode: 'new', name: 'my-next-idea', git: true
+});
+const agent = await kimo.createSession({
+  name: 'builder', kind: 'claude', cwd: project.path
+});
+
+await kimo.send(agent.id, 'Build an invoice PWA with tests.');
+const state = await kimo.waitFor(
+  agent.id, ['idle', 'waiting'], { timeout: 120000 }
+);
+console.log(state.status, state.activity);
+console.log((await kimo.reply(agent.id)).text);</code></pre></div>
+          <p><code>waitFor</code> resolves when the agent is no longer working, including a request for input or a stopped/exited session. It does not prove the task succeeded. Inspect the state and reply. Its timeout is in milliseconds; catch errors in your app and present them to the user.</p>
+          <h3>Live events and terminals</h3>
+          <div class="doc-code"><div class="doc-code-top"><span>JavaScript / using the client above</span><button class="copy-button" data-copy="doc-events" aria-label="Copy live-events example" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-events">const unsubscribe = kimo.subscribe(
+  ({ sessions, accounts }) =&gt; console.log(sessions, accounts),
+  () =&gt; console.log('Connection interrupted')
+);
+
+// When this view is disposed:
+// unsubscribe();</code></pre></div>
+          <p>Import the terminal component, add a <code>&lt;kimo-terminal&gt;</code> element with a visible height, then assign the client and session ID from the example above:</p>
+          <div class="doc-code"><div class="doc-code-top"><span>JavaScript / an existing &lt;kimo-terminal&gt; element</span><button class="copy-button" data-copy="doc-terminal" aria-label="Copy terminal component example" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-terminal">import 'https://YOUR-HOST/sdk/kimo-terminal.js';
+
+const terminal = document.querySelector('kimo-terminal');
+terminal.style.height = '24rem';
+terminal.kimo = kimo;
+terminal.setAttribute('session', agent.id);</code></pre></div>
+          <p>The component follows the page’s light/dark scheme and <code>--color-*</code> design tokens. Its <code>readonly</code> attribute disables local input, but a terminal connection still requires a control or owner key: a read key cannot open it.</p>
+          <p>For an owner client, <code>kimo.forHost(host)</code> creates a client routed to a paired host, and <code>kimo.useHost(host)</code> changes the selected host. Peer enumeration and forwarding remain owner-only. Ordinary apps should connect to each host directly with a suitable scoped key.</p>
+          <p>See the complete <a href="https://github.com/vallverdu/kimo/tree/main/examples/agent-board">agent-board example</a> and the <a href="https://github.com/vallverdu/kimo/tree/main/web/sdk">SDK source</a>.</p>
+        </section>
+
+        <section id="api" class="doc-section">
+          <h2><span>11</span> HTTP API</h2>
+          <p>API paths begin with <code>/api</code>. Send JSON request bodies and <code>Authorization: Bearer YOUR_KEY</code>. WebSockets and EventSource can use the SDK’s token-bearing URLs when request headers are unavailable. API failures use <code>{ "error": "plain words" }</code>.</p>
+          <div class="doc-code doc-code-wrap"><div class="doc-code-top"><span>HTTP / replace HOST and set KIMO_APP_KEY</span><button class="copy-button" data-copy="doc-http" aria-label="Copy HTTP request example" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-http">curl -H "Authorization: Bearer $KIMO_APP_KEY" \
+  http://HOST:7777/api/sessions</code></pre></div>
+          <p>The route guide below groups the public surface. For full request/response fields, use the repository’s <a href="https://github.com/vallverdu/kimo/blob/main/docs/api.md">API, SDK and CLI reference</a>. Access restrictions from the previous section apply to every group.</p>
+          <details class="doc-faq" open><summary>Projects, folders and conversations</summary><div class="doc-table" tabindex="0" role="region" aria-label="Project API routes"><table><thead><tr><th>Method</th><th>Path after /api</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td class="method">GET / POST</td><td><code>/projects</code></td><td>List; create <code>{mode, name?, path?, git?, url?}</code>. Modes: new, existing, clone.</td></tr><tr><td class="method">PATCH / DELETE</td><td><code>/projects/{id}</code></td><td>Change name/colour; forget while retaining project files.</td></tr><tr><td class="method">POST / DELETE</td><td><code>/projects/{id}/worktrees</code></td><td>Create <code>{name, agent?}</code>; remove with <code>?path=</code>.</td></tr><tr><td class="method">GET / POST</td><td><code>/fs</code></td><td>Browse with <code>?path=</code>; create <code>{parent, name}</code>. Not available to read keys.</td></tr><tr><td class="method">GET</td><td><code>/conversations?path=</code></td><td>Earlier provider conversations in a folder.</td></tr><tr><td class="method">POST</td><td><code>/conversations/continue</code></td><td>Continue <code>{agent, cwd, id, name?, start?}</code>.</td></tr>
+          </tbody></table></div></details>
+          <details class="doc-faq"><summary>Sessions, messages, files and live output</summary><div class="doc-table" tabindex="0" role="region" aria-label="Session API routes"><table><thead><tr><th>Method</th><th>Path after /api</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td class="method">GET / POST</td><td><code>/sessions</code></td><td>List; create <code>{name, kind, cwd?, account?, args?, command?, start?}</code>.</td></tr><tr><td class="method">GET / DELETE</td><td><code>/sessions/{id}</code></td><td>Read one session; stop and remove it.</td></tr><tr><td class="method">POST</td><td><code>/sessions/{id}/action</code></td><td><code>{action: start | pause | resume | stop | restart}</code>.</td></tr><tr><td class="method">POST</td><td><code>/sessions/{id}/account</code></td><td>Switch account and continue the conversation.</td></tr><tr><td class="method">POST</td><td><code>/sessions/{id}/message</code></td><td>Send <code>{text, from?}</code> as a signed message.</td></tr><tr><td class="method">GET</td><td><code>/sessions/{id}/reply</code></td><td>Last answer: <code>{source, text}</code>.</td></tr><tr><td class="method">GET</td><td><code>/sessions/{id}/screen?lines=40</code></td><td>Recent terminal text without escape codes.</td></tr><tr><td class="method">POST</td><td><code>/sessions/{id}/input</code></td><td>Raw terminal input: <code>{text}</code>.</td></tr><tr><td class="method">POST</td><td><code>/sessions/{id}/files</code></td><td>Upload <code>{name, data}</code>, base64, up to 20 MB; returns a host path.</td></tr><tr><td class="method">WebSocket</td><td><code>/sessions/{id}/term</code></td><td>Binary terminal frames; JSON resize messages. Replays recent output.</td></tr><tr><td class="method">GET / SSE</td><td><code>/events</code></td><td><code>update</code> events containing sessions and accounts, including periodic usage updates.</td></tr>
+          </tbody></table></div><p>Session fields separate process <code>status</code> from running-agent <code>activity</code>. IDs can also be a unique prefix or session name; <code>host/id</code> identifies a remote session.</p></details>
+          <details class="doc-faq"><summary>Accounts, subscriptions and usage</summary><div class="doc-table" tabindex="0" role="region" aria-label="Account API routes"><table><thead><tr><th>Method</th><th>Path after /api</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td class="method">GET / POST</td><td><code>/accounts</code></td><td>List accounts; owner creates <code>{name, provider}</code>.</td></tr><tr><td class="method">DELETE</td><td><code>/accounts/{id}</code></td><td>Owner removes an unused account.</td></tr><tr><td class="method">POST</td><td><code>/accounts/{id}/login</code></td><td>Owner starts its authentication terminal.</td></tr><tr><td class="method">POST</td><td><code>/accounts/active</code></td><td>Set <code>{provider, account, move?}</code> for new sessions; optionally move existing ones.</td></tr><tr><td class="method">POST</td><td><code>/accounts/{id}/move</code></td><td>Move sessions with <code>{to}</code>.</td></tr><tr><td class="method">GET</td><td><code>/usage</code></td><td>Account use, known plan limits, resets and pace.</td></tr><tr><td class="method">GET</td><td><code>/usage/daily?days=30</code></td><td>Usage by date, place, account and model; estimated API cost.</td></tr>
+          </tbody></table></div></details>
+          <details class="doc-faq"><summary>Host resources and recovery</summary><div class="doc-table" tabindex="0" role="region" aria-label="Resource API routes"><table><thead><tr><th>Method</th><th>Path after /api</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td class="method">GET</td><td><code>/status</code></td><td>Host identity, version and resource summary.</td></tr><tr><td class="method">GET</td><td><code>/memory</code></td><td>Pressure, eligible idle/heavy agents and recovery history.</td></tr><tr><td class="method">POST</td><td><code>/memory/free</code></td><td>Stop eligible idle resumable agents; returns stopped IDs.</td></tr><tr><td class="method">GET</td><td><code>/sessions/{id}/memory</code></td><td>Memory by process tree, including child tools.</td></tr><tr><td class="method">GET</td><td><code>/ports</code></td><td>Owner inspects listening ports and associated processes/sessions.</td></tr><tr><td class="method">GET / POST</td><td><code>/awake</code></td><td>Owner reads or changes <code>{mode: off | agents | on}</code>.</td></tr>
+          </tbody></table></div></details>
+          <details class="doc-faq"><summary>Pairing, networks and peer hosts — owner administration</summary><div class="doc-table" tabindex="0" role="region" aria-label="Device and peer API routes"><table><thead><tr><th>Method</th><th>Path after /api</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td class="method">POST</td><td><code>/pairing</code></td><td>Create a one-time pairing code.</td></tr><tr><td class="method">POST</td><td><code>/pair</code></td><td>Exchange <code>{code, name}</code> for a device key. The code is the proof; no prior key is needed.</td></tr><tr><td class="method">GET / DELETE</td><td><code>/devices</code> / <code>/devices/{id}</code></td><td>List paired devices; revoke one.</td></tr><tr><td class="method">GET</td><td><code>/network</code> / <code>/qr?text=</code></td><td>Reachable addresses and network hints; QR as SVG.</td></tr><tr><td class="method">POST</td><td><code>/network/https</code></td><td>Set up HTTPS through Tailscale.</td></tr><tr><td class="method">GET / POST</td><td><code>/peers</code></td><td>List paired hosts; add <code>{url, code, my_url?}</code>.</td></tr><tr><td class="method">DELETE</td><td><code>/peers/{id}</code></td><td>Forget a peer.</td></tr><tr><td class="method">GET / POST</td><td><code>/peers/keys</code> / <code>/peers/accept</code></td><td>Owner peer-key access; peer pairing handshake.</td></tr><tr><td class="method">Forwarded</td><td><code>/hosts/{host}/…</code></td><td>Route API, events and terminals to the chosen peer. Owner-only.</td></tr>
+          </tbody></table></div></details>
+          <details class="doc-faq"><summary>Apps, skills, settings and updates</summary><div class="doc-table" tabindex="0" role="region" aria-label="Administration API routes"><table><thead><tr><th>Method</th><th>Path after /api</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td class="method">GET / POST</td><td><code>/clients</code></td><td>Owner lists or creates <code>{name, origins, scope}</code> app keys.</td></tr><tr><td class="method">DELETE</td><td><code>/clients/{id}</code></td><td>Owner revokes an app key.</td></tr><tr><td class="method">GET / PUT</td><td><code>/settings</code></td><td>Owner reads or saves agent, UI, update and resource settings.</td></tr><tr><td class="method">GET</td><td><code>/agents</code></td><td>Installed provider CLIs and known versions.</td></tr><tr><td class="method">GET / POST / DELETE</td><td><code>/skills</code></td><td>List with <code>?project=</code>; owner installs from a source or removes with <code>?path=</code>.</td></tr><tr><td class="method">POST</td><td><code>/skills/kimo</code></td><td>Owner installs the bundled collaboration skill.</td></tr><tr><td class="method">GET / POST</td><td><code>/update</code></td><td>Owner checks release state or installs an update.</td></tr><tr><td class="method">POST</td><td><code>/update/restart</code></td><td>Owner restarts on the installed version.</td></tr>
+          </tbody></table></div></details>
+        </section>
+
+        <section id="cli" class="doc-section">
+          <h2><span>12</span> CLI reference</h2>
+          <p>The command line is an API client. Inside a kimo session, <code>KIMO_URL</code> and <code>KIMO_SESSION</code> point it at the right server and identify the sender. A command targeting another agent can use its ID, name or unique ID prefix.</p>
+          <div class="doc-table" tabindex="0" role="region" aria-label="CLI commands"><table><thead><tr><th>Command</th><th>Use</th></tr></thead><tbody>
+            <tr><td><code>kimo</code> / <code>kimo app</code></td><td>Open the native window.</td></tr><tr><td><code>kimo serve</code></td><td>Run the server without a window.</td></tr><tr><td><code>kimo pair</code></td><td>Show a QR and pairing code.</td></tr><tr><td><code>kimo install-app</code></td><td>Set up the macOS application bundle.</td></tr><tr><td><code>kimo agents [--json]</code></td><td>List local and paired agents, status and resume IDs.</td></tr><tr><td><code>kimo new &lt;claude|codex|shell&gt;</code></td><td>Start a session. Options: <code>--name</code>, <code>--cwd</code>, <code>--account</code>, <code>--prompt</code>.</td></tr><tr><td><code>kimo send &lt;id&gt; &lt;message…&gt;</code></td><td>Send a signed message.</td></tr><tr><td><code>kimo read &lt;id&gt; [--screen] [--lines N]</code></td><td>Read the last reply, or recent terminal screen.</td></tr><tr><td><code>kimo wait &lt;id&gt; [--timeout S]</code></td><td>Wait until not working. Timeout is in seconds; default 900.</td></tr><tr><td><code>kimo whoami</code></td><td>Show the current kimo session identity.</td></tr><tr><td><code>kimo history [folder]</code></td><td>Find earlier provider conversations.</td></tr><tr><td><code>kimo continue &lt;conversation&gt; [--folder DIR]</code></td><td>Continue a selected conversation.</td></tr><tr><td><code>kimo usage [--days 14] [--json]</code></td><td>Inspect usage for this host.</td></tr><tr><td><code>kimo peers</code></td><td>List paired computers.</td></tr><tr><td><code>kimo peer add &lt;url&gt; &lt;code&gt; [--my-url URL]</code></td><td>Pair with another host.</td></tr><tr><td><code>kimo peer remove &lt;id&gt;</code></td><td>Forget a peer.</td></tr><tr><td><code>kimo --help</code> / <code>kimo --version</code></td><td>Inspect the installed binary’s own options and version.</td></tr>
+          </tbody></table></div>
+          <h3>Ask another agent to review</h3>
+          <div class="doc-code"><div class="doc-code-top"><span>Collaboration / inspect replies before proceeding</span><button class="copy-button" data-copy="doc-collaboration" aria-label="Copy agent collaboration example" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-collaboration">kimo new claude --name reviewer --prompt "Review src/parser.rs and report problems"
+kimo wait reviewer --timeout 900
+kimo read reviewer
+kimo send reviewer "Focus on malformed input and error messages"</code></pre></div>
+          <p>A wait ending can mean idle, stopped or needs input; it is not a success verdict. Read the answer. Do not send messages into another agent’s human approval prompt or approve on someone else’s behalf. The bundled skill documents that collaboration pattern.</p>
+        </section>
+
+        <section id="configuration" class="doc-section">
+          <h2><span>13</span> Configuration &amp; services</h2>
+          <p>Flags override their environment fallbacks. Server options such as <code>--bind</code>, <code>--name</code> and <code>--projects-dir</code> go before the subcommand.</p>
+          <div class="doc-code"><div class="doc-code-top"><span>Example / name and bind a host</span><button class="copy-button" data-copy="doc-config" aria-label="Copy server configuration example" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-config">kimo --bind tailscale --name studio --projects-dir ~/dev serve</code></pre></div>
+          <div class="doc-table" tabindex="0" role="region" aria-label="Configuration variables"><table><thead><tr><th>Variable</th><th>Default</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td><code>KIMO_BIND</code></td><td><code>all</code></td><td>Listen on all, localhost, tailscale, zerotier or an IP.</td></tr><tr><td><code>KIMO_PORT</code></td><td><code>7777</code></td><td>HTTP/WebSocket server port.</td></tr><tr><td><code>KIMO_NAME</code></td><td>Hostname</td><td>Identity shown to paired kimos.</td></tr><tr><td><code>KIMO_PROJECTS_DIR</code></td><td><code>~/dev</code></td><td>Parent for new projects.</td></tr><tr><td><code>KIMO_LOCAL_OWNER</code></td><td><code>true</code></td><td>Treat direct requests from this machine as owner requests.</td></tr><tr><td><code>KIMO_TOKEN</code></td><td>Unset</td><td>Optional owner token for scripts.</td></tr><tr><td><code>KIMO_DATA_DIR</code></td><td><code>~/.kimo</code></td><td>Internal state and account homes.</td></tr><tr><td><code>KIMO_ORIGINS</code></td><td>Unset</td><td>Extra comma-separated browser origins for owner-token access. Normal apps use their own keys.</td></tr><tr><td><code>KIMO_SCROLLBACK</code></td><td><code>262144</code></td><td>Bytes of recent terminal output kept per session.</td></tr><tr><td><code>RUST_LOG</code></td><td>Application logging configuration</td><td>For example <code>kimo=info</code> or <code>kimo=debug</code>.</td></tr>
+          </tbody></table></div>
+          <p><a href="https://github.com/vallverdu/kimo/blob/main/.env.example">.env.example</a> documents the variables. Set them in the process environment or your service configuration; it is not a project file that you need to add to every repository.</p>
+          <h3>Linux user service</h3>
+          <p>From a checkout of the kimo application, copy the <a href="https://github.com/vallverdu/kimo/blob/main/contrib/kimo.service">systemd template</a>. Its default executable is <code>~/.local/bin/kimo</code>; adjust <code>ExecStart</code> for a Cargo install and include your tools in the service’s PATH.</p>
+          <div class="doc-code"><div class="doc-code-top"><span>Linux / run from the kimo application checkout</span><button class="copy-button" data-copy="doc-systemd" aria-label="Copy Linux service setup" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-systemd">mkdir -p ~/.config/systemd/user
+cp contrib/kimo.service ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now kimo
+loginctl enable-linger "$USER"
+
+# Follow the service log
+journalctl --user -u kimo -f</code></pre></div>
+          <h3>macOS LaunchAgent</h3>
+          <p>Copy <a href="https://github.com/vallverdu/kimo/blob/main/contrib/ai.kimo.plist">contrib/ai.kimo.plist</a> into <code>~/Library/LaunchAgents/</code>. Before loading it, edit the executable path: the template uses <code>$HOME/.cargo/bin/kimo</code>, while the release installer normally uses <code>$HOME/.local/bin/kimo</code>. Then load the agent:</p>
+          <div class="doc-code doc-code-wrap"><div class="doc-code-top"><span>macOS / after copying and editing the template</span><button class="copy-button" data-copy="doc-launchagent" aria-label="Copy LaunchAgent load command" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-launchagent">launchctl load -w ~/Library/LaunchAgents/ai.kimo.plist</code></pre></div>
+          <p>The supplied LaunchAgent starts at login and writes to <code>/tmp/kimo.log</code>. It is not a system daemon that starts before a user signs in. <code>kimo install-app</code> sets up the native app bundle separately.</p>
+          <h3>Data, credentials and access</h3>
+          <p>State is plain JSON at <code>~/.kimo/state.json</code> by default. Account configuration homes live under <code>~/.kimo/accounts/</code>; uploads, managed worktrees and backups also belong to kimo’s data directory. Credentials belong in those provider homes, not in project files or Git.</p>
+          <p>The owner can run terminals as your host user. Owner access includes paired devices/kimos, the optional owner token and direct requests from the machine when local ownership is enabled. On a shared machine, set <code>KIMO_LOCAL_OWNER=false</code> and use explicit device pairing.</p>
+          <p>Prefer a private network and follow the project’s <a href="https://github.com/vallverdu/kimo/blob/main/SECURITY.md">security model</a>; kimo is not intended to be exposed directly to the public internet. Revoke device, peer and app access when no longer needed.</p>
+        </section>
+
+        <section id="troubleshooting" class="doc-section">
+          <h2><span>14</span> Troubleshooting</h2>
+          <details class="doc-faq"><summary>My phone cannot reach the host.</summary><p>Check that the server is running, the address is reachable from the phone’s network and the bind setting is not localhost-only. Use the host’s LAN or private-network address, not the phone’s <code>localhost</code>. Inspect Devices / Network for available addresses and firewall hints. A pairing code alone does not establish reachability.</p></details>
+          <details class="doc-faq"><summary>Pairing works in the browser but the installed PWA asks again.</summary><p>The installed PWA may have separate browser storage. Open it from the home screen and use a fresh one-time code. Codes expire after ten minutes and cannot be reused after redemption.</p></details>
+          <details class="doc-faq"><summary>The Android install option is missing.</summary><p>Use the host’s HTTPS address. With Tailscale configured, Devices can set up HTTPS through Tailscale Serve. A normal HTTP LAN page may be reachable without meeting Android’s installation requirements.</p></details>
+          <details class="doc-faq"><summary>macOS asks me to review the downloaded app.</summary><p>Signed and notarised macOS release builds remain planned. First launch can therefore require a system security confirmation. Check that you obtained the binary from the project’s release or installer, and review the macOS prompt. The host can run with <code>kimo serve</code> without opening the native window.</p></details>
+          <details class="doc-faq"><summary>kimo cannot find Claude Code, Codex or a development tool.</summary><p>Install it and authenticate on the selected host. A user service may have a different PATH from your interactive shell; update the service environment and restart it when safe. The macOS native app reads the login shell’s PATH, while service templates still need their executable/tool paths checked.</p></details>
+          <details class="doc-faq"><summary>I hit a provider limit. Will kimo switch automatically?</summary><p>Do not rely on automatic exhausted-limit recovery yet. Choose another already authenticated account of the same provider for the session. Provider sign-in, remaining quota and the conversation’s actual resume result still need to be checked; phone-friendly Codex authentication and limit recovery remain open work.</p></details>
+          <details class="doc-faq"><summary>Plan percentages are missing, or estimated cost differs from my bill.</summary><p>Claude plan data needs its usage integration and a usable login; Codex limits arrive through its logs. Unknown or expired data can leave percentages absent. Usage costs use API list prices as a reference and do not describe a subscription invoice.</p></details>
+          <details class="doc-faq"><summary>Pausing did not free memory.</summary><p>Pause leaves the process allocated. Stop an eligible idle resumable agent to release its process memory, then open it to continue the conversation. Inspect the process breakdown for large MCP servers or builds. A stopped shell cannot restore a running job from conversation history.</p></details>
+          <details class="doc-faq"><summary>A peer is offline, or its HTTPS address fails.</summary><p>Check reachability in both directions and the host names/addresses used for pairing. Use <code>--my-url</code> if the discovered return address is wrong. The current Rust peer client still needs HTTPS/WSS support, even when the phone’s direct HTTPS connection works.</p></details>
+          <details class="doc-faq"><summary>My app gets 401/403 responses or a CORS failure.</summary><p>Check its key, allowed browser origin and scope. A read key cannot create a project or connect a terminal. A control key still cannot manage owner-only routes such as settings, pairing or peer forwarding. Origins include the scheme and port, so HTTP and HTTPS addresses are different origins.</p></details>
+          <details class="doc-faq"><summary>The terminal is blank, garbled or missing older output.</summary><p>Check the selected host and session, then reconnect or use redraw where available. Reconnect output is bounded by the server’s scrollback setting. Use project history or the provider transcript for conversation history; it is separate from the terminal replay buffer.</p></details>
+          <details class="doc-faq"><summary>What should I include in a bug report?</summary><p>Include <code>kimo --version</code>, host OS/architecture, browser/device, whether the host was direct or paired, the provider, and the steps to reproduce. Remove tokens, pairing codes, account credentials and private terminal output. Report security issues privately through the repository’s Security tab rather than a public issue.</p></details>
+        </section>
+
+        <section id="status" class="doc-section">
+          <h2><span>15</span> Status &amp; contributing</h2>
+          <p>This guide was reviewed against the project’s README, API/SDK/CLI reference, configuration, access rules, service templates and product direction on 26 October 2026. It describes the implemented interfaces and the remaining work known at that review; check the installed binary’s help and the current repository when versions differ.</p>
+          <p>The main priorities are completing and verifying the phone-to-host journey, continuity across devices and accounts, useful resource recovery and the shared API/SDK.</p>
+          <ul><li>Real iOS/Android checks of creating a project, directing and publishing work, sleep/reconnect and continuing through a peer remain open.</li><li>Fresh-project setup still needs a combined agent/account/initial-task flow.</li><li>Rust peer HTTPS/WSS support, mobile settings/skills controls and phone-friendly Codex setup remain unfinished.</li><li>Both real providers still need account-switch and exhausted-limit recovery acceptance checks.</li><li>Representative host measurements and real-phone memory recovery checks remain to be recorded.</li><li>A detached PTY holder is still needed for uninterrupted session processes across server restarts.</li></ul>
+          <p>Browser-emulated screenshots and automated fake-agent/two-server tests are useful evidence for their specific checks. They do not establish that every phone, provider and paired-host scenario has passed.</p>
+          <h3>Contribute</h3>
+          <p>Use <a href="https://github.com/vallverdu/kimo/issues">issues</a> for reproducible bugs and proposals, and read <a href="https://github.com/vallverdu/kimo/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> before a code change. Shared capabilities belong in the API and SDK, with the PWA and native window as clients. Keep projects as ordinary folders and the core small.</p>
+          <p>Application changes require <code>cargo fmt</code>, <code>cargo clippy --all-targets -- -D warnings</code> and <code>cargo test</code>; shared/server work must also preserve <code>cargo build --no-default-features</code>. Record what was actually checked on devices and providers.</p>
+          <p>kimo is licensed under <strong>MIT OR Apache-2.0</strong>. Its providers and their CLIs have their own terms. See the project’s <a href="https://github.com/vallverdu/kimo/blob/main/TODO.md">current roadmap</a> and <a href="https://github.com/vallverdu/kimo/releases/latest">release notes</a> for changes after this review.</p>
+        </section>
+        <div class="docs-end"><a href="index.html">← Back to kimo</a><a href="https://github.com/vallverdu/kimo/issues">Improve this guide ↗</a><a href="#top">Back to top ↑</a></div>
+      </main>
+    </div>
+    <footer class="site-footer"><div class="row footer-row"><a class="brand" href="index.html"><img class="theme-logo" src="assets/brand/kimo-light.svg" width="30" height="30" alt=""><span>kimo<span class="brand-dot">.</span></span></a><span class="footer-credit">Made by <a href="https://jordivallverdu.com">Jordi Vallverdú</a></span><nav aria-label="Footer"><a href="index.html">Home</a><a href="https://github.com/vallverdu/kimo">Source</a><a href="https://github.com/vallverdu/kimo/issues">Contribute ↗</a></nav></div></footer>
+  </div>
+  <div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>
