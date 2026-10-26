@@ -1,0 +1,259 @@
+/* Timber Framework 1.9.7 · ThemeMountain · MIT.
+   Grid from the supplied jordivallverdu.com Sartre template.
+   The kimo skin is in skin.css; no legacy JavaScript is required. */
+/* Wrapper */
+.wrapper{
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+}
+.wrapper-inner{
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: hidden;
+}
+body.boxed .wrapper-inner{
+	max-width: 114rem;
+}
+.row{
+	width: 100%;
+	max-width: 114rem;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/* ie fix */
+.ie-browser .row{
+	max-width: 1140px;
+}
+.row.full-width{
+	max-width: 100%;
+}
+.row .row{
+	width: auto;
+	margin-right: -1.5rem;
+	margin-left: -1.5rem;
+}
+.row:before,
+.row:after{
+	content: ".";
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
+.row:after{
+	clear: both;
+}
+.column,
+[class*="content-grid"] .grid-item{
+	width: 100%;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	float: left;
+}
+.column > *:first-child{
+	margin-top: 0;
+}
+.row.collapse > .column{
+	padding-left: 0;
+	padding-right: 0;
+}
+.row.full-width.collapse .row {
+	margin: auto;
+}
+
+/* Flex rows */
+.row.flex.v-align-middle{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+.row.flex.v-align-middle > .column >  div{
+	width: initial;
+}
+.row.flex.v-align-top{
+	align-items: flex-start;
+}
+.row.flex.v-align-bottom{
+	align-items: flex-end;
+}
+/* ie9,10 fix */
+.ie-browser:not(.webkit) .row.flex.v-align-middle{
+	height: 100%;
+	display: table;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+.ie-browser:not(.webkit) .row.flex.v-align-middle > .column{
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
+}
+.ie-browser:not(.webkit) .row.flex.v-align-top{
+	vertical-align: top;
+}
+.ie-browser:not(.webkit) .row.flex.v-align-bottom{
+	vertical-align: bottom;
+}
+
+/*Flex columns*/
+.row.flex{
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: initial;
+}
+.row.flex > .v-align-middle,
+.row.flex.boxes > .column,
+.row.flex.boxes > .v-align-middle,
+.row.flex > .v-align-middle > .box{
+	height: auto;
+	display: inherit;
+}
+.row.flex > .v-align-top,
+.row.flex.boxes > .v-align-top,
+.row.flex > .v-align-top > .box{
+	align-self: flex-start;
+}
+.row.flex > .v-align-bottom,
+.row.flex.boxes > .v-align-bottom,
+.row.flex > .v-align-bottom > .box{
+	align-self: flex-end;
+}
+.row.flex > .column > .box > div {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.row.flex > .v-align-top > .box > div{
+	margin-top: 0;
+	margin-bottom: auto;
+}
+.row.flex > .v-align-bottom > .box > div{
+	margin-top: auto;
+	margin-bottom: 0;
+}
+.row.flex > .column > div{
+	flex-direction: column;
+}
+.row.flex .row.flex{
+	flex-direction: row;
+}
+@media only screen and (min-width: 768px){
+	.row.flex .v-align-middle > *:not(.box),
+	.row.flex.boxes .v-align-middle > div > *:not(.box){
+		width: 100%;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	/* ie10 fix */
+	.ie-browser:not(.webkit) .flex > .column{
+		align-items: center;
+	}
+}
+.row.flex:before,
+.row.flex:after{
+	content: "";
+	display: none;
+}
+
+/*Row padding*/
+.row.small{
+	padding: 3rem 0;
+}
+.row.medium{
+	padding: 5rem 0;
+}
+.row.large{
+	padding: 7rem 0;
+}
+.row.xlarge{
+	padding: 9rem 0;
+}
+
+/*Columns Widths*/
+.width-1	{width: 8.33333%;}
+.width-2	{width: 16.66667%;}
+.width-3	{width: 25%;}
+.width-4	{width: 33.33333%;}
+.width-5	{width: 41.66667%;}
+.width-6	{width: 50%;}
+.width-7	{width: 58.33333%;}
+.width-8	{width: 66.66667%;}
+.width-9	{width: 75%;}
+.width-10	{width: 83.33333%;}
+.width-11	{width: 91.66667%;}
+.width-12	{width: 100%;}
+
+/*Push - Pull*/
+.column[class*='push-'],
+.column[class*='pull-']{
+	position: relative;
+}
+.push-1		{left: 8.33333%;}
+.push-2		{left: 16.66667%;}
+.push-3		{left: 25%;}
+.push-4		{left: 33.33333%;}
+.push-5		{left: 41.66667%;}
+.push-6		{left: 50%;}
+.push-7		{left: 58.33333%;}
+.push-8		{left: 66.66667%;}
+.push-9		{left: 75%;}
+.push-10	{left: 83.33333%;}
+.push-11	{left: 91.66667%;}
+
+.pull-1		{right: 8.33333%;}
+.pull-2		{right: 16.66667%;}
+.pull-3		{right: 25%;}
+.pull-4		{right: 33.33333%;}
+.pull-5		{right: 41.66667%;}
+.pull-6		{right: 50%;}
+.pull-7		{right: 58.33333%;}
+.pull-8		{right: 66.66667%;}
+.pull-9		{right: 75%;}
+.pull-10	{right: 83.33333%;}
+.pull-11	{right: 91.66667%;}
+
+/*Offset*/
+.offset-1	{margin-left: 8.33333%;}
+.offset-2	{margin-left: 16.66667%;}
+.offset-3	{margin-left: 25%;}
+.offset-4	{margin-left: 33.33333%;}
+.offset-5	{margin-left: 41.66667%;}
+.offset-6	{margin-left: 50%;}
+.offset-7	{margin-left: 58.33333%;}
+.offset-8	{margin-left: 66.66667%;}
+.offset-9	{margin-left: 75%;}
+.offset-10	{margin-left: 83.33333%;}
+.offset-11	{margin-left: 91.66667%;}
+
+/*Clear Margins*/
+.alpha{padding-left: 0;}
+.omega{padding-right: 0;}
+
+/*Clearfix*/
+.clear {
+	width: 0;
+	height: 0;
+	display: block;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after{
+	height: 0;
+	content: ".";
+	display: block;
+	overflow: hidden;
+}
+.clearfix:after,
+.row:after{
+	clear: both;
+}
