@@ -45,7 +45,7 @@ Examples on the documentation page are inert text. Copy buttons do not run insta
 
 The logo belongs to kimo. Static logo variants, the 4.2-second hair-to-bun splash and the 4.8-second eye loop are copied from `kimo/assets/brand/`. The animations remain self-contained, honour reduced motion and follow the embedding theme. No brand source is edited by this site.
 
-Screenshots come from `kimo/docs/screenshots/`: v0.1.8, captured 2026-10-26 using demonstration data and browser phone emulation. Captions retain that version independently of the latest release link. The images demonstrate the UI; they do not establish real-device, real-provider, peer-routing or performance acceptance. See the application’s screenshot README for capture conditions.
+Screenshots come from `kimo/docs/screenshots/`: v0.1.15, captured 2026-10-29 with kimo's demo kit (`scripts/demo/`), whose data is entirely invented, and browser phone emulation. Captions retain that version independently of the latest release link. The images demonstrate the UI; they do not establish real-device, real-provider, peer-routing or performance acceptance. See the application’s screenshot README for capture conditions.
 
 To refresh assets after the logo agent or application changes:
 
@@ -54,9 +54,11 @@ node scripts/sync-assets.mjs ../kimo
 npm run build
 ```
 
-Review both themes, screenshot versions/captions and the social image after syncing. Roboto Mono is self-hosted in `assets/fonts/` with its SIL Open Font License. `assets/social.png` is the 1200 × 630 share image; its browser-rendered source is `scripts/social.html`.
+The sync also copies kimo's 3D map (`js/map/`, from `web/js/`), three.js r160 (`js/vendor/three/`, MIT, see its `LICENSE`), the map's styles (`css/map.css`, generated from `web/css/kimo.css`) and the demo kit's invented world (`js/map/world.js`). `js/fleet-demo.js` runs that map on the world in the browser, with no kimo behind it; `css/fleet.css` fits it to the site. Never sync real machine data into it. Review both themes, screenshot versions/captions and the social image after syncing. Roboto Mono is self-hosted in `assets/fonts/` with its SIL Open Font License. `assets/social.png` is the 1200 × 630 share image; its browser-rendered source is `scripts/social.html`.
 
 ## Verification
+
+2026-10-29: the live fleet section was checked in Chrome at desktop width and 390 px (light and dark, no horizontal overflow, selecting a machine, no console errors); real phones were not used.
 
 2026-10-26: checked in headless Google Chrome on macOS at 320, 375, 390, 430, 560, 768, 800, 1024 and 1440 CSS-pixel widths. Checked light/dark layouts, persistent theme choice, system theme, reduced motion, navigation and Escape, all gallery panels, keyboard tabs, both installation commands, actual clipboard copying and content with JavaScript disabled. No horizontal page overflow, missing assets or JavaScript errors were observed. Screenshots were visually inspected at phone and desktop sizes.
 

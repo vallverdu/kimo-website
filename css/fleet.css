@@ -1,0 +1,27 @@
+/* The live fleet section: kimo's own map (css/map.css) on the website's skin, with the few
+   app controls the map draws. */
+:root { --color-field-line: #cccccc; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) { --color-field-line: #4a4a4a; --color-warn: #e0a84a; --color-bad: #f25f6e; }
+}
+:root[data-theme='dark'] { --color-field-line: #4a4a4a; --color-warn: #e0a84a; --color-bad: #f25f6e; }
+
+.fleet-live { border: 1px solid var(--color-line); background: var(--color-background); }
+.fleet-live .k-map-wrap { margin: 0; gap: 0; }
+.fleet-live .k-map { border: 0; height: min(64rem, 70svh); min-height: 38rem; }
+.fleet-live .k-map-panel { padding: 2rem; border-top: 1px solid var(--color-line); min-height: 14rem; }
+@media (min-width: 960px) { .fleet-live .k-map-panel { border-top: 0; border-left: 1px solid var(--color-line); max-height: min(64rem, 70svh); overflow: auto; } }
+.fleet-live .k-map-summary { padding: 1.4rem 1.6rem; margin: 0; border-bottom: 1px solid var(--color-line); font-size: 1.1rem; }
+.fleet-live .ui-button { display: inline-flex; align-items: center; min-height: 3.2rem; padding: .6rem 1.2rem; border: 1px solid var(--color-ink); background: var(--color-background); color: var(--color-ink); font: 400 1.1rem/1 var(--font-family); letter-spacing: .1rem; cursor: pointer; }
+.fleet-live .ui-button:hover { background: var(--color-ink); color: var(--color-background); }
+.fleet-live .ui-button:focus-visible, .k-map-check:focus-within { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.fleet-live .k-hint { color: var(--color-muted); font-size: 1.2rem; margin: 0; }
+.fleet-live .ui-alert { font-size: 1.2rem; padding: 1rem 1.2rem; border: 1px solid var(--color-line); margin: 0 0 1rem; }
+.fleet-live #map-alerts:empty { display: none; }
+.fleet-fallback { display: block; margin: 0 auto; max-height: 64rem; width: auto; max-width: 100%; padding: 2rem; }
+.fleet-live.running .fleet-fallback { display: none; }
+.fleet-live:not(.running) .k-map-wrap { display: none; }
+@media (max-width: 800px) {
+  .fleet-live .k-map { height: 52rem; min-height: 0; }
+  .fleet-live .k-map-panel { padding: 1.6rem; }
+}

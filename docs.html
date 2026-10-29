@@ -54,7 +54,7 @@
       <p class="eyebrow">SETUP / WORKFLOWS / REFERENCE</p>
       <h1>From first install<br>to your own tools<span class="accent">.</span></h1>
       <p class="lead">A practical guide to running agents on your computers, directing them from your phone and building on the same API.</p>
-      <div class="docs-meta"><span>Reviewed 26 October 2026</span><a href="#installation">Start here ↓</a><a href="https://github.com/vallverdu/kimo/releases/latest">Latest release ↗</a></div>
+      <div class="docs-meta"><span>Reviewed 29 October 2026</span><a href="#installation">Start here ↓</a><a href="https://github.com/vallverdu/kimo/releases/latest">Latest release ↗</a></div>
     </div></div>
 
     <div class="row docs-layout">
@@ -63,7 +63,7 @@
           <span class="toc-group">GETTING STARTED</span>
           <a href="#overview">What runs where</a><a href="#installation">Install &amp; start</a><a href="#phone">Connect your phone</a>
           <span class="toc-group">WORKING IN KIMO</span>
-          <a href="#projects">Projects &amp; worktrees</a><a href="#sessions">Agents &amp; conversations</a><a href="#hosts">Paired computers</a><a href="#accounts">Accounts &amp; usage</a><a href="#resources">Resources &amp; recovery</a><a href="#settings">Skills, settings &amp; updates</a>
+          <a href="#projects">Projects &amp; worktrees</a><a href="#sessions">Agents &amp; conversations</a><a href="#hosts">Paired computers &amp; fleet</a><a href="#accounts">Accounts &amp; usage</a><a href="#resources">Resources &amp; recovery</a><a href="#settings">Skills, settings &amp; updates</a>
           <span class="toc-group">BUILDING &amp; REFERENCE</span>
           <a href="#custom-apps">Build your own app</a><a href="#api">HTTP API</a><a href="#cli">CLI reference</a><a href="#configuration">Configuration &amp; services</a><a href="#troubleshooting">Troubleshooting</a><a href="#status">Status &amp; contributing</a>
         </nav></details>
@@ -119,7 +119,7 @@ cargo install --git https://github.com/vallverdu/kimo kimo --no-default-features
           <h3>Your first project from a phone</h3>
           <ol><li>Open <strong>Projects → +</strong> and choose a new project.</li><li>Enter its name and create it. The folder is created on the selected host, under its configured projects directory unless you choose another location.</li><li>Choose <strong>+ claude</strong> or <strong>+ codex</strong> under that project. New sessions use the provider’s active account.</li><li>Send an initial task through the message field, for example “Build a small invoice PWA with line items, totals and a print view.”</li><li>Review output, answer the agent’s questions and ask it to test or publish when ready. Publishing uses tools and credentials available on the host.</li></ol>
           <p>Project creation, agent launch and the first message are currently separate steps. A combined guided flow is still planned.</p>
-          <figure class="doc-figure"><div class="doc-figure-images"><img data-screen="phone-projects" src="assets/screenshots/phone-projects.png" width="860" height="1864" alt="kimo projects on a phone, with Claude Code, Codex and shell launch buttons" loading="lazy"><img data-screen="phone-terminal" src="assets/screenshots/phone-terminal.png" width="860" height="1864" alt="An agent terminal on a phone with a task, progress output and message field" loading="lazy"></div><figcaption>v0.1.8 interface · demonstration data · browser phone emulation.<br>These captures illustrate the workflow; they do not establish real-device acceptance.</figcaption></figure>
+          <figure class="doc-figure"><div class="doc-figure-images"><img data-screen="phone-projects" src="assets/screenshots/phone-projects.png" width="860" height="1864" alt="kimo projects on a phone, with Claude Code, Codex and shell launch buttons" loading="lazy"><img data-screen="phone-terminal" src="assets/screenshots/phone-terminal.png" width="860" height="1864" alt="An agent terminal on a phone with a task, progress output and message field" loading="lazy"></div><figcaption>v0.1.15 interface · invented demonstration data · browser phone emulation.<br>These captures illustrate the workflow; they do not establish real-device acceptance.</figcaption></figure>
         </section>
 
         <section id="projects" class="doc-section">
@@ -148,7 +148,7 @@ cargo install --git https://github.com/vallverdu/kimo kimo --no-default-features
         </section>
 
         <section id="hosts" class="doc-section">
-          <h2><span>06</span> Paired computers</h2>
+          <h2><span>06</span> Paired computers &amp; fleet</h2>
           <p>Run kimo on each computer. On the computer to add, create a pairing code with <code>kimo pair</code>. In the other kimo, open <strong>Devices → Other kimos</strong> and enter that address and code. Pairing lets the two machines learn about one another.</p>
           <div class="doc-code"><div class="doc-code-top"><span>CLI / replace the example address and code</span><button class="copy-button" data-copy="doc-peers" aria-label="Copy peer pairing examples" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-peers">kimo peers
 kimo peer add http://HOST:7777 PAIRING-CODE
@@ -158,6 +158,15 @@ kimo send gpu-lab/trainer-1a2b "Report the training progress"</code></pre></div>
           <p>Give hosts clear names through <code>KIMO_NAME</code> or <code>--name</code>. Agent IDs from another computer use <code>host/id</code>. If automatic address discovery chooses an unreachable return address, the CLI supports <code>--my-url</code> when pairing.</p>
           <aside class="doc-note"><strong>Current transport limit</strong><p>The Rust peer client’s HTTPS/WSS support remains unfinished. Do not assume that an HTTPS address working in your phone browser also works for kimo-to-kimo forwarding. Use a reachable HTTP address on a trusted private network or a suitable SSH tunnel; the application’s peer TLS work is tracked in the roadmap.</p></aside>
           <p>Reaching paired hosts through <code>/api/hosts/…</code> is owner-only. A normal scoped app key does not gain peer-forwarding access; a custom app can connect to hosts directly with an appropriate key for each one.</p>
+          <h3 id="map">The map</h3>
+          <p>The phone’s <strong>Map</strong> tab draws every machine and phone on your tailnet in 3D, to scale, while it is open: who is online, what each machine runs, its hardware and fleet jobs, and a pulse when work starts or ends. It needs Tailscale on the kimo the phone talks to (<code>GET /api/network/tailnet</code>, SDK <code>tailnet()</code>). <a href="index.html#fleet">See it running on invented machines</a>.</p>
+          <h3 id="fleet">A fleet of machines</h3>
+          <p>When some machines should sleep and others stay on, run the coordinator <code>kimo-fleet</code> on an always-on board such as a Raspberry Pi, next to its kimo (<code>KIMO_FLEET=http://127.0.0.1:7780</code>). It wakes machines with Wake-on-LAN, switches them off after 20 idle minutes, places jobs where they fit, and runs workflows that pass files between machines and wait for your approval in the <strong>Fleet</strong> tab. The coordinator pairs one way: its key reaches a machine’s facts, jobs and power, never its terminals, files or accounts.</p>
+          <div class="doc-code"><div class="doc-code-top"><span>CLI / on the coordinator</span><button class="copy-button" data-copy="doc-fleet" aria-label="Copy fleet examples" hidden><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button></div><pre tabindex="0" aria-label="Code example"><code id="doc-fleet">kimo-fleet serve
+kimo-fleet discover              # machines on Tailscale or ZeroTier
+kimo-fleet add 100.101.20.2 --model nuc-11-extreme --role gpu-worker
+kimo-fleet run job.yaml</code></pre></div>
+          <p><em>Find machines</em> in the Fleet tab does the same from the phone: kimo installs itself over SSH on the new machine (your keys or Tailscale SSH, never a password), pairs one way and gives it a hardware model and role. The <a href="https://github.com/vallverdu/kimo/blob/main/docs/fleet.md">fleet guide</a> covers <code>devices.yaml</code>, power policies, jobs and workflows. Real-hardware checks are still open.</p>
         </section>
 
         <section id="accounts" class="doc-section">
